@@ -6,6 +6,45 @@
 
 В репозитории — установщик и описание; готовые пакеты — в Releases. Исходники приложения здесь не публикуются. Лицензии и сведения о сторонних компонентах находятся внутри пакетов, в NOTICE.md и LICENSE-*.txt.
 
+## Скриншоты
+
+Интерфейс D2S Next rc4.10, тёмная тема. Показатели на снимках относятся к тестовому роутеру.
+
+![Обзор](screenshots/overview.png)
+
+<details>
+<summary>Все разделы панели</summary>
+
+### Подбор решений
+
+![Подбор решений](screenshots/selection.png)
+
+### Каталог сайтов
+
+![Каталог сайтов](screenshots/catalog.png)
+
+### Группы сайтов
+
+![Группы сайтов](screenshots/groups.png)
+
+### Telegram
+
+![Telegram](screenshots/telegram.png)
+
+### WhatsApp
+
+![WhatsApp](screenshots/whatsapp.png)
+
+### Диагностика
+
+![Диагностика](screenshots/diagnostics.png)
+
+### Настройки
+
+![Настройки](screenshots/settings.png)
+
+</details>
+
 ## Одна команда для Keenetic и OpenWrt
 
 ```sh
