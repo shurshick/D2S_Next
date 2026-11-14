@@ -27,13 +27,13 @@ case "$(uname -m)" in
  *) echo 'Архитектура не поддерживается';exit 1;;
 esac
 case "$arch" in
- arm64) expected=761816dce3cbfa58cbbb86722e9dd1c8a405db5bc041c84e219d30b5f9fbbde1;;
- armv7) expected=c4946fdc71c89c81462ba664be2ab8d152690ba454d97cedf3ad068f2bf345d4;;
- mipsel) expected=c20e5ad3b369dc4de14520ea9cd34d10d44553be5c44e05f3219c2b46e5197d7;;
- mips) expected=bfee580e78b9082305b703aeb1ad49d5b4d356888013dd020232f4d979111d45;;
- x86_64) expected=795dbc36c55e8afd4c40ba4fa2d2bb37a8f8d1ddb1805ea6682139df75572beb;;
+ arm64) expected=9122871f7d7c6b1d5a72e6e3bd013d473c63df0ece8e6fa6db14dca759f6d2d1;;
+ armv7) expected=1324ef1062ad994de6f0e29794021d15bafea68fb393e77d91c996a64d89f301;;
+ mipsel) expected=674130a3c4535a7c1ec9c3840e33b94fd9efb2bab6a6a86e03781012cf2017e9;;
+ mips) expected=0b047dc266de94fcc00f820caa7f3b2501e90c58be5bc34ff7f6f716fc9bbbac;;
+ x86_64) expected=16a4ac184923d48de996bdf1a760cc89fc5294d03d8f8dd5d919b0d75ae8779b;;
 esac
-version=0.1.0-rc4.13
+version=0.1.0-rc4.14
 if [ -r /opt/d2s-next/current/VERSION ] && [ "$(cat /opt/d2s-next/current/VERSION)" = "$version" ]; then echo "Уже установлена $version";exit 0;fi
 tmp=$(mktemp -d /tmp/d2sn-online.XXXXXX)
 trap 'rm -rf -- "$tmp"' 0
