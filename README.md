@@ -94,7 +94,7 @@ ARM64, ARMv7, MIPS little-endian и big-endian (32-bit soft-float), x86_64; ст
 ## Полное онлайн-удаление одной командой
 
 ```sh
-(f=$(mktemp) && curl -fLsS https://raw.githubusercontent.com/shurshick/D2S_Next/main/install.sh?uninstall=1 -o "$f" && sh "$f" --uninstall; r=$?; [ -z "${f:-}" ] || rm -f "$f"; exit "$r")
+(f=$(mktemp) && curl -fLsS https://raw.githubusercontent.com/shurshick/D2S_Next/0b71154/install.sh -o "$f" && sh "$f" --uninstall; r=$?; [ -z "${f:-}" ] || rm -f "$f"; exit "$r")
 ```
 
 Выполняйте от root на нужном роутере. Команда скачивает только управляющий скрипт и вызывает штатное полное удаление установленного D2S Next. Пакеты приложения не скачиваются. Удаляются программа, автозапуск, собственные сетевые правила, найденные решения, журналы, настройки и MTProto-секрет. Чужие программы не удаляются. Операция необратима. При отсутствии D2S Next команда завершается без изменений; при повреждённой установке отказывается удалять каталог вслепую.
