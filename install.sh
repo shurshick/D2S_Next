@@ -3,6 +3,17 @@ set -eu
 PATH=/opt/sbin:/opt/bin:/usr/sbin:/usr/bin:/sbin:/bin
 export PATH
 [ "$(id -u)" = 0 ] || { echo 'Запустите от root'; exit 1; }
+if [ "${1:-}" = --uninstall ]; then
+ [ "$#" = 1 ] || { echo 'Использование: sh install.sh --uninstall';exit 2; }
+ if [ ! -e /opt/d2s-next ] && [ ! -L /opt/d2s-next ]; then echo 'D2S Next не установлен';exit 0;fi
+ [ ! -L /opt/d2s-next ] || { echo 'Каталог продукта не должен быть ссылкой';exit 1; }
+ manager=/opt/d2s-next/current/libexec/manage.sh
+ resolved=$(readlink -f "$manager") || { echo 'Штатный менеджер удаления не найден';exit 1; }
+ case "$resolved" in /opt/d2s-next/releases/*/libexec/manage.sh) ;; *) echo 'Недопустимый путь менеджера; удаление отменено';exit 1;; esac
+ [ -f "$manager" ] || { echo 'Штатный менеджер удаления не найден';exit 1; }
+ echo 'Полное удаление D2S Next: настройки, решения, журналы и MTProto-секрет будут удалены.'
+ exec /bin/sh "$manager" uninstall
+fi
 mode=install
 if [ "${1:-}" = --update ]; then mode=update;shift; [ -e /opt/d2s-next/current ] || { echo 'D2S Next не установлен';exit 1; };fi
 for tool in curl sha256sum tar awk mktemp ip iptables ipset; do command -v "$tool" >/dev/null || { echo "Не найдена команда: $tool. Установите зависимости из README."; exit 1; }; done
